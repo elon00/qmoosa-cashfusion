@@ -1,0 +1,19 @@
+// CashScript Contract
+// QMOOSA CashFusion Covenant for BCH BLAZE 2026
+pragma cashscript ^0.8.0;
+
+contract CashFusionCovenant(
+    pubkey merchantPubKey,
+    pubkey customerPubKey,
+    bytes20 tokenCategory
+) {
+    function settleInvoice(sig merchantSig, int amount) {
+        require(checkSig(merchantSig, merchantPubKey));
+        require(tx.outputs[0].value >= amount);
+    }
+
+    function refundCustomer(sig customerSig) {
+        require(checkSig(customerSig, customerPubKey));
+        require(tx.age >= 100);
+    }
+}

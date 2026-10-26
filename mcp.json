@@ -1,0 +1,46 @@
+{
+  "mcpServers": {
+    "qmoosa-cashfusion": {
+      "tools": [
+        {
+          "name": "create_cashtoken_invoice",
+          "description": "Generates a BIP-21 CashToken compatible invoice with QR code payload",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount_bch": {
+                "type": "number"
+              },
+              "token_amount": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount_bch",
+              "token_amount",
+              "description"
+            ]
+          }
+        },
+        {
+          "name": "verify_bch_utxo_proof",
+          "description": "Verifies cryptographic UTXO confirmation and double-spend proof on Bitcoin Cash",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "txid": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "txid"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
